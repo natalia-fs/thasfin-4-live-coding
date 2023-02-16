@@ -1,0 +1,308 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --base: #100510;
+  --rosa: #882281;
+  --background: #8d96de;
+  --borda: 2px solid var(--rosa);
+}
+
+body{
+  background: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container{
+  position: relative;
+}
+
+.capacete{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(15%);
+}
+
+.frente{
+  background: var(--base);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: var(--borda);
+
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.frente::before,
+.frente::after{
+  content: "";
+  position: absolute;
+  background: var(--base);
+  border-radius: 50%;
+  border: var(--borda);
+  z-index: -2;
+}
+
+.frente::before{
+  width: 112px;
+  height: 112px;
+  z-index: -2;
+}
+.frente::after{
+  width: 104px;
+  height: 104px;
+}
+
+.lados{
+  position: absolute;
+  top: 35px;
+  display: flex;
+  gap: 80px;
+  z-index: -1;
+}
+
+.lados::before, .lados::after{
+  content: "";
+  position: relative;
+  width: 20px;
+  height: 30px;
+  border-radius: 35%;
+  background: var(--base);
+  border: var(--borda);
+}
+
+/* Corpo */
+
+.corpo{
+  position: relative;
+}
+
+.uniforme{
+  position: relative;
+  width: 100px;
+  height: 80px;
+  background: var(--base);
+  border-radius: 50% 50% 0 0 / 70% 70% 0 0;
+  z-index: -1;
+  overflow: hidden;
+  border: var(--borda);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.uniforme::before,
+.uniforme::after{
+  content: "";
+  position: absolute;
+  border: var(--borda);
+}
+
+.uniforme::before{
+  width: 60px;
+  height: 120px;
+  border-radius: 50%;
+  transform: translateY(-30%);
+}
+.uniforme::after{
+  width: 50px;
+  height: 30px;
+  border-radius: 50%;
+  transform: translateY(-40%);
+}
+
+.uniforme .circulo{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: var(--borda);
+  transform: translateY(150%);
+}
+.mochila{
+  position: absolute;
+  width: 106px;
+  height: 96px;
+  background: var(--base);
+  border: var(--borda);
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  z-index: -2;
+}
+.cinto{
+  position: relative;
+  width: 100px;
+  height: 12px;
+  background: var(--base);
+  border: var(--borda);
+  border-top: none;
+  top: 0;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+}
+
+.cinto::before, .cinto::after{
+  content: "";
+  position: absolute;
+  border: var(--borda);
+}
+
+.cinto::before{
+  width: 12px;
+  height: 24px;
+  background: var(--base);
+  border-radius: 12px;
+  margin-left: 4px;
+}
+
+.cinto::after{
+  width: 24px;
+  height: 24px;
+  background: var(--base);
+  border: var(--borda);
+  border-radius: 25%;
+  right: -2px;
+}
+
+.bracos{
+  width: 100px;
+}
+
+.braco{
+  position: absolute;
+  width: 40px;
+  height: 85px;
+  background: var(--base);
+  border: var(--borda);
+  border-radius: 50%;
+  transform: translate(-35%, -100%) rotate(10deg);
+  z-index: -2;
+}
+
+.braco:nth-child(2){
+  transform: translate(35%, -100%) rotate(-10deg);
+  right: 0;
+}
+
+.braco:nth-child(2) .mao{
+  right: 0;
+}
+
+.mao{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: var(--base);
+  border-radius: 0 0 50% 50%;
+  border: var(--borda);
+  bottom: -10%;
+}
+
+.ombros{
+  position: absolute;
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  left: 50%;
+  top: -5%;
+  transform: translateX(-50%);
+  z-index: -2;
+}
+.ombros::before,
+.ombros::after{
+  content: "";
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: var(--base);
+  border: var(--borda);
+  border-radius: 50%;
+}
+
+.pernas{
+  position: relative;
+  width: 100px;
+  height: 70px;
+  border-radius: 50% 50% 15% 15% / 0% 0% 80% 80%;
+  border: var(--borda);
+  border-bottom: none;
+  overflow: hidden;
+}
+
+.pernas::before{
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 60px;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  border-radius: 50%;
+  border: var(--borda);
+  overflow: hidden;
+  box-shadow:0 0 0 500px var(--base);
+}
+
+.botas{
+  position: absolute;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}
+
+.bota{
+  position: relative;
+  background: var(--base);
+  width: 50px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  border: var(--borda);
+  border-top: transparent;
+  border-right: transparent;
+}
+
+.bota:last-child{
+  border-right: var(--borda);
+  border-left: transparent;
+}
+.bota::before, .bota::after{
+  content: "";
+  position: absolute;
+}
+.bota::before, .bota:last-child::before{
+  background: var(--base);
+  border: var(--borda);
+  width: 12px;
+  height: 10px;
+  border-radius: 50% 0;
+  right: 0;
+}
+.bota:last-child::before{
+  border-radius: 0 50%;
+  left: 0;
+}
+.bota::after,
+.bota:last-child::after{
+  width: 38px;
+  height: 2px;
+  background: var(--rosa);
+  top: -100%;
+  left: 4px;
+}
