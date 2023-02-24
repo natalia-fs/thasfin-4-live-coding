@@ -1,0 +1,174 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --base: #100510;
+  --rosa: #882281;
+  --background: #8d96de;
+  --borda: 2px solid var(--rosa);
+
+  --frente: 100px;
+  --mao: 30px;
+}
+
+body{
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container{
+  position: relative;
+}
+
+.capacete{
+  position: relative;
+
+}
+
+.frente{
+  position: relative;
+}
+
+.frente::before,
+.frente::after{
+  content: "";
+  position: absolute;
+}
+
+.frente::before{
+
+}
+.frente::after{
+
+}
+
+.lados{
+  position: absolute;
+
+}
+
+.lados::before, .lados::after{
+  content: "";
+  position: relative;
+
+}
+
+/* Corpo */
+
+.corpo{
+  position: relative;
+}
+
+.uniforme{
+  position: relative;
+
+}
+
+.uniforme::before,
+.uniforme::after{
+  content: "";
+  position: absolute;
+
+}
+
+.uniforme::before{
+
+}
+.uniforme::after{
+
+}
+
+.uniforme .circulo{
+
+}
+.mochila{
+  position: absolute;
+
+}
+.cinto{
+
+}
+
+.cinto::before, .cinto::after{
+  content: "";
+  position: absolute;
+
+}
+
+.cinto::before{
+
+}
+
+.cinto::after{
+
+}
+
+.bracos{
+
+}
+
+.braco{
+  position: absolute;
+
+}
+
+.braco:nth-child(2){
+
+}
+
+.braco:nth-child(2) .mao{
+
+}
+
+.mao{
+  position: absolute;
+
+}
+
+.ombros{
+  position: absolute;
+
+}
+
+.ombros::before,
+.ombros::after{
+  content: "";
+  position: relative;
+
+}
+
+.pernas{
+  position: relative;
+
+}
+
+.pernas::before{
+  content: "";
+  position: absolute;
+
+}
+
+.botas{
+
+}
+
+.bota{
+
+}
+
+.bota:last-child{
+
+
+}
+.bota::after{
+  content: "";
+  position: absolute;
+
+}
