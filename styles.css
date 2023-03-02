@@ -8,36 +8,53 @@
   --base: #100510;
   --rosa: #882281;
   --background: #8d96de;
+  --background: radial-gradient(circle at bottom left, black, blue, purple);
   --borda: 2px solid var(--rosa);
+
+  --frente: 100px;
+  --mao: 30px;
 }
 
 body{
   background: var(--background);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   overflow: hidden;
 }
-
+.animate{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 9;
+}
 .container{
   position: relative;
 }
-
+.animate:hover + .container{
+  animation: thasfin 5s ease infinite alternate;
+}
+@keyframes thasfin {
+  0% { transform: translateX(-450px) rotate(0);}
+  100% { transform: translateX(450px) rotate(360deg);}
+}
 .capacete{
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+
   transform: translateY(15%);
 }
 
 .frente{
-  background: var(--base);
+  position: relative;
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  background: var(--base);
   border: var(--borda);
+  border-radius: 50%;
 
   display: flex;
   justify-content: center;
@@ -49,58 +66,58 @@ body{
   content: "";
   position: absolute;
   background: var(--base);
-  border-radius: 50%;
   border: var(--borda);
+  border-radius: 50%;
   z-index: -2;
 }
 
 .frente::before{
   width: 112px;
   height: 112px;
-  z-index: -2;
 }
 .frente::after{
-  width: 104px;
   height: 104px;
+  width: 104px;
 }
 
 .lados{
   position: absolute;
-  top: 35px;
   display: flex;
   gap: 80px;
-  z-index: -1;
+  top: 35px;
 }
 
 .lados::before, .lados::after{
   content: "";
   position: relative;
-  width: 20px;
+  border: var(--borda);
+  background: var(--base);
+  width: 25px;
   height: 30px;
   border-radius: 35%;
-  background: var(--base);
-  border: var(--borda);
+  z-index: -2;
 }
 
 /* Corpo */
 
 .corpo{
   position: relative;
+  
 }
 
 .uniforme{
-  position: relative;
+  border: var(--borda);
+  background: var(--base);
   width: 100px;
   height: 80px;
-  background: var(--base);
-  border-radius: 50% 50% 0 0 / 70% 70% 0 0;
   z-index: -1;
+  border-radius: 50% 50% 0 0 / 70% 70% 0 0;
+  position: relative;
   overflow: hidden;
-  border: var(--borda);
 
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
 }
 
 .uniforme::before,
@@ -108,18 +125,17 @@ body{
   content: "";
   position: absolute;
   border: var(--borda);
+  border-radius: 50%;
 }
 
 .uniforme::before{
   width: 60px;
   height: 120px;
-  border-radius: 50%;
   transform: translateY(-30%);
 }
 .uniforme::after{
   width: 50px;
   height: 30px;
-  border-radius: 50%;
   transform: translateY(-40%);
 }
 
@@ -134,58 +150,54 @@ body{
   position: absolute;
   width: 106px;
   height: 96px;
-  background: var(--base);
   border: var(--borda);
-  top: 0;
+  background: var(--base);
   left: 50%;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -120%);
   z-index: -2;
 }
 .cinto{
-  position: relative;
   width: 100px;
   height: 12px;
   background: var(--base);
   border: var(--borda);
-  border-top: none;
-  top: 0;
-  z-index: 1;
+  border-top: transparent;
+  border-bottom: transparent;
 
   display: flex;
   align-items: center;
 }
 
-.cinto::before, .cinto::after{
+.cinto::before,
+.cinto::after{
   content: "";
   position: absolute;
+  height: 24px;
   border: var(--borda);
+  background: var(--base);
 }
 
 .cinto::before{
   width: 12px;
-  height: 24px;
-  background: var(--base);
   border-radius: 12px;
   margin-left: 4px;
 }
 
 .cinto::after{
   width: 24px;
-  height: 24px;
-  background: var(--base);
-  border: var(--borda);
   border-radius: 25%;
   right: -2px;
 }
 
 .bracos{
-  width: 100px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .braco{
   position: absolute;
   width: 40px;
-  height: 85px;
+  height: 80px;
   background: var(--base);
   border: var(--borda);
   border-radius: 50%;
@@ -206,10 +218,10 @@ body{
   position: absolute;
   width: 30px;
   height: 30px;
+  border: var(--borda);
   background: var(--base);
   border-radius: 0 0 50% 50%;
-  border: var(--borda);
-  bottom: -10%;
+  bottom: -15%;
 }
 
 .ombros{
@@ -217,31 +229,31 @@ body{
   width: 100px;
   display: flex;
   justify-content: space-between;
-  left: 50%;
-  top: -5%;
-  transform: translateX(-50%);
-  z-index: -2;
 }
+
 .ombros::before,
 .ombros::after{
   content: "";
   position: relative;
-  display: block;
   width: 30px;
   height: 30px;
-  background: var(--base);
   border: var(--borda);
+  background: var(--base);
   border-radius: 50%;
+  top: -100px;
+  z-index: -2;
 }
 
 .pernas{
   position: relative;
   width: 100px;
   height: 70px;
-  border-radius: 50% 50% 15% 15% / 0% 0% 80% 80%;
   border: var(--borda);
-  border-bottom: none;
+  z-index: -1;
+  border-radius: 0 0 15% 15% / 0 0 80% 80%;
+
   overflow: hidden;
+  border-bottom: transparent;
 }
 
 .pernas::before{
@@ -249,31 +261,26 @@ body{
   position: absolute;
   width: 12px;
   height: 60px;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 10%);
   border-radius: 50%;
+  left: 50%;
+  transform: translate(-50%, 20%);
   border: var(--borda);
-  overflow: hidden;
-  box-shadow:0 0 0 500px var(--base);
+  box-shadow: 0 0 0 500px var(--base);
 }
 
 .botas{
-  position: absolute;
-  width: 100px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 5%;
 }
 
 .bota{
-  position: relative;
-  background: var(--base);
   width: 50px;
   height: 12px;
   border-radius: 50%;
-  transform: translateY(-50%);
   border: var(--borda);
+  background: var(--base);
+  transform: translateY(-50%);
   border-top: transparent;
   border-right: transparent;
 }
@@ -282,27 +289,12 @@ body{
   border-right: var(--borda);
   border-left: transparent;
 }
-.bota::before, .bota::after{
+.bota::after{
   content: "";
   position: absolute;
-}
-.bota::before, .bota:last-child::before{
-  background: var(--base);
-  border: var(--borda);
-  width: 12px;
-  height: 10px;
-  border-radius: 50% 0;
-  right: 0;
-}
-.bota:last-child::before{
-  border-radius: 0 50%;
-  left: 0;
-}
-.bota::after,
-.bota:last-child::after{
   width: 38px;
   height: 2px;
   background: var(--rosa);
-  top: -100%;
   left: 4px;
+  top: -100%;
 }
